@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F561B6FDB9B6F7E102892F4 /* Pods_GitHubb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A12F81DE78E4A295532903B1 /* Pods_GitHubb.framework */; };
 		E670153B241FDDB700BAAD05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E670153A241FDDB700BAAD05 /* AppDelegate.m */; };
 		E670153E241FDDB700BAAD05 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E670153D241FDDB700BAAD05 /* SceneDelegate.m */; };
 		E6701544241FDDB700BAAD05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6701542241FDDB700BAAD05 /* Main.storyboard */; };
@@ -17,9 +18,16 @@
 		E670155C241FF8E400BAAD05 /* ITS_UserListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E670155A241FF8E400BAAD05 /* ITS_UserListTableViewCell.m */; };
 		E670155D241FF8E400BAAD05 /* ITS_UserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E670155B241FF8E400BAAD05 /* ITS_UserListTableViewCell.xib */; };
 		E670155E241FFD9100BAAD05 /* ITS_UserListTableViewCell.h in Sources */ = {isa = PBXBuildFile; fileRef = E6701559241FF8E400BAAD05 /* ITS_UserListTableViewCell.h */; };
+		E67015622420023F00BAAD05 /* ITS_ServiceUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E67015612420023F00BAAD05 /* ITS_ServiceUtils.m */; };
+		E6701565242003B300BAAD05 /* ITS_ServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6701564242003B300BAAD05 /* ITS_ServiceManager.m */; };
+		E67015682420050200BAAD05 /* ITS_Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = E67015672420050200BAAD05 /* ITS_Repository.m */; };
+		E670156D242007C200BAAD05 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E670156C242007C200BAAD05 /* User.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		218CF9D471818035797B4786 /* Pods-GitHubb.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubb.release.xcconfig"; path = "Target Support Files/Pods-GitHubb/Pods-GitHubb.release.xcconfig"; sourceTree = "<group>"; };
+		90766660221418CC226EFBD5 /* Pods-GitHubb.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubb.debug.xcconfig"; path = "Target Support Files/Pods-GitHubb/Pods-GitHubb.debug.xcconfig"; sourceTree = "<group>"; };
+		A12F81DE78E4A295532903B1 /* Pods_GitHubb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6701536241FDDB700BAAD05 /* GitHubb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6701539241FDDB700BAAD05 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E670153A241FDDB700BAAD05 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -35,6 +43,14 @@
 		E6701559241FF8E400BAAD05 /* ITS_UserListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ITS_UserListTableViewCell.h; sourceTree = "<group>"; };
 		E670155A241FF8E400BAAD05 /* ITS_UserListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ITS_UserListTableViewCell.m; sourceTree = "<group>"; };
 		E670155B241FF8E400BAAD05 /* ITS_UserListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ITS_UserListTableViewCell.xib; sourceTree = "<group>"; };
+		E67015602420023F00BAAD05 /* ITS_ServiceUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ITS_ServiceUtils.h; sourceTree = "<group>"; };
+		E67015612420023F00BAAD05 /* ITS_ServiceUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ITS_ServiceUtils.m; sourceTree = "<group>"; };
+		E6701563242003B300BAAD05 /* ITS_ServiceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ITS_ServiceManager.h; sourceTree = "<group>"; };
+		E6701564242003B300BAAD05 /* ITS_ServiceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ITS_ServiceManager.m; sourceTree = "<group>"; };
+		E67015662420050200BAAD05 /* ITS_Repository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ITS_Repository.h; sourceTree = "<group>"; };
+		E67015672420050200BAAD05 /* ITS_Repository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ITS_Repository.m; sourceTree = "<group>"; };
+		E670156B242007C200BAAD05 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		E670156C242007C200BAAD05 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,17 +58,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F561B6FDB9B6F7E102892F4 /* Pods_GitHubb.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C2D187C7204C828836D7F22A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				90766660221418CC226EFBD5 /* Pods-GitHubb.debug.xcconfig */,
+				218CF9D471818035797B4786 /* Pods-GitHubb.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E670152D241FDDB700BAAD05 = {
 			isa = PBXGroup;
 			children = (
 				E6701538241FDDB700BAAD05 /* GitHubb */,
 				E6701537241FDDB700BAAD05 /* Products */,
+				C2D187C7204C828836D7F22A /* Pods */,
+				F03B72C20BA66B7227A9D0E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +99,7 @@
 				E6701557241FF8A400BAAD05 /* ITSControls */,
 				E6701556241FF87900BAAD05 /* ViewControllers */,
 				E6701552241FDDC600BAAD05 /* Storyboards */,
+				E670155F2420020E00BAAD05 /* ITSServices */,
 				E6701545241FDDB800BAAD05 /* Assets.xcassets */,
 				E6701539241FDDB700BAAD05 /* AppDelegate.h */,
 				E670153A241FDDB700BAAD05 /* AppDelegate.m */,
@@ -103,6 +132,8 @@
 		E6701557241FF8A400BAAD05 /* ITSControls */ = {
 			isa = PBXGroup;
 			children = (
+				E670156A242006B800BAAD05 /* ViewModels */,
+				E6701569242006B200BAAD05 /* Models */,
 			);
 			path = ITSControls;
 			sourceTree = "<group>";
@@ -117,6 +148,43 @@
 			path = Design;
 			sourceTree = "<group>";
 		};
+		E670155F2420020E00BAAD05 /* ITSServices */ = {
+			isa = PBXGroup;
+			children = (
+				E67015662420050200BAAD05 /* ITS_Repository.h */,
+				E67015672420050200BAAD05 /* ITS_Repository.m */,
+				E6701563242003B300BAAD05 /* ITS_ServiceManager.h */,
+				E6701564242003B300BAAD05 /* ITS_ServiceManager.m */,
+				E67015602420023F00BAAD05 /* ITS_ServiceUtils.h */,
+				E67015612420023F00BAAD05 /* ITS_ServiceUtils.m */,
+			);
+			path = ITSServices;
+			sourceTree = "<group>";
+		};
+		E6701569242006B200BAAD05 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E670156B242007C200BAAD05 /* User.h */,
+				E670156C242007C200BAAD05 /* User.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E670156A242006B800BAAD05 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		F03B72C20BA66B7227A9D0E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A12F81DE78E4A295532903B1 /* Pods_GitHubb.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -124,9 +192,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E670154F241FDDB800BAAD05 /* Build configuration list for PBXNativeTarget "GitHubb" */;
 			buildPhases = (
+				572447883813CAE63207692C /* [CP] Check Pods Manifest.lock */,
 				E6701532241FDDB700BAAD05 /* Sources */,
 				E6701533241FDDB700BAAD05 /* Frameworks */,
 				E6701534241FDDB700BAAD05 /* Resources */,
+				CCA249E1CA2BB05D1FB25DC7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -183,16 +253,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		572447883813CAE63207692C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GitHubb-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCA249E1CA2BB05D1FB25DC7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GitHubb/Pods-GitHubb-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GitHubb/Pods-GitHubb-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GitHubb/Pods-GitHubb-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E6701532241FDDB700BAAD05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E670156D242007C200BAAD05 /* User.m in Sources */,
 				E670155E241FFD9100BAAD05 /* ITS_UserListTableViewCell.h in Sources */,
 				E670153B241FDDB700BAAD05 /* AppDelegate.m in Sources */,
+				E6701565242003B300BAAD05 /* ITS_ServiceManager.m in Sources */,
+				E67015622420023F00BAAD05 /* ITS_ServiceUtils.m in Sources */,
 				E670155C241FF8E400BAAD05 /* ITS_UserListTableViewCell.m in Sources */,
 				E670154C241FDDB800BAAD05 /* main.m in Sources */,
 				E670153E241FDDB700BAAD05 /* SceneDelegate.m in Sources */,
+				E67015682420050200BAAD05 /* ITS_Repository.m in Sources */,
 				E6701555241FE71C00BAAD05 /* ITS_UserListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -331,6 +447,7 @@
 		};
 		E6701550241FDDB800BAAD05 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90766660221418CC226EFBD5 /* Pods-GitHubb.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -348,6 +465,7 @@
 		};
 		E6701551241FDDB800BAAD05 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 218CF9D471818035797B4786 /* Pods-GitHubb.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
