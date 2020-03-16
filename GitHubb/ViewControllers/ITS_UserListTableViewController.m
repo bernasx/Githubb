@@ -7,8 +7,7 @@
 //
 
 #import "ITS_UserListTableViewController.h"
-#import "ITS_UserListTableViewCell.h"
-#import <QuartzCore/QuartzCore.h>
+
 
 
 @interface ITS_UserListTableViewController ()
@@ -16,6 +15,7 @@
 @end
 
 @implementation ITS_UserListTableViewController
+int const currentPageConst = 46;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,19 +34,79 @@
     
     //tableview config
     [self.tableView setBounces:NO];
+    [self.tableView setTableFooterView:[UIView new]];
+
+    //Spinner methods
+    self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleLarge];
+    self.spinner.center = [self.view center];
+    [self.view addSubview:self.spinner];
     
+    //viewmodel and request setup
+    self.viewModel = [[ITS_UserListViewModel alloc] init];
+    self.currentPage = -currentPageConst;
+    
+    //keyboard dismiss
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
+    [self.view addGestureRecognizer:gestureRecognizer];
+    gestureRecognizer.cancelsTouchesInView = NO;
+    
+    [self fetchData];
+    
+}
+
+- (void)dismissKeyboard
+{
+     [self.view endEditing:YES];
+}
+
+-(void)spinnerAnimate{
+    if([self.spinner isAnimating]){
+        [self.spinner stopAnimating];
+        [self.spinner setHidden:YES];
+    }else{
+        [self.spinner setHidden:NO];
+        [self.spinner startAnimating];
+    }
+}
+
+- (void)fetchData{
+    [self spinnerAnimate];
+    self.currentPage +=currentPageConst;
+    [self.viewModel fetchUsersWithPage:self.currentPage completion:^(NSArray * _Nonnull userArray, NSString * _Nonnull error) {
+        if(userArray){
+            self.userArray = [[NSArray alloc] initWithArray:userArray];
+        }
+        
+        //if there is an error
+        if(error){
+            self.currentPage -=currentPageConst; //if something goes wrong you need to pretend it didn't happen
+            [self showAlert:error];
+        }else{
+            [self.tableView reloadData];
+        }
+        [self spinnerAnimate];
+    }];
+}
+
+- (void)showAlert:(NSString *)alertMsg{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Network problem" message:alertMsg preferredStyle:UIAlertControllerStyleAlert];
+
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                            
+                        }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 5;
+
+    return [self.userArray count];
 }
 
 
@@ -55,62 +115,32 @@
     NSString *nibID = @"ITS_UserListTableViewCell";
     [self.tableView registerNib:[UINib nibWithNibName:nibID bundle:nil] forCellReuseIdentifier:cellID];
     ITS_UserListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
-    
-    if(indexPath.row % 2 != 0){
-        [cell.contentView setAlpha:0.9];
+    cell.user = [self.userArray objectAtIndex:indexPath.row];
+    cell.userNameLabel.text = cell.user.userLoginName;
+    NSString *urlString = cell.user.userAvatarUrl;
+    if(urlString){
+        [cell.userImageView setImageWithURL:[[NSURL alloc] initWithString:urlString]];
     }
     
-    // Configure the cell...
-    
+
     return cell;
 }
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 128.0;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+        if(indexPath.row % 2 != 0){
+            [cell.contentView setAlpha:0.9];
+        }else{
+             [cell.contentView setAlpha:1];
+        }
+        int lastElement = (int) [self.userArray count]-1;
+        if(indexPath.row == lastElement){
+            [self fetchData];
+        }
 }
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

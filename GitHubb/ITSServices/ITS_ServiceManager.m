@@ -26,6 +26,7 @@ NSString * const urlConst = @"https://api.github.com/";
 //custom setter with parameter and method
 - (void)setRequestWithParameters:(NSDictionary *) parameters withMethod: (NSString *) method{
     self.request = [[AFHTTPRequestSerializer serializer] requestWithMethod:method URLString: self.url.absoluteString parameters:parameters error:nil];
+    NSLog(self.request.URL.absoluteString);
 }
 
 
@@ -41,7 +42,6 @@ NSString * const urlConst = @"https://api.github.com/";
             } downloadProgress:^(NSProgress * _Nonnull downloadProgress) {
                 NSLog(@"Download Progress = %@" ,downloadProgress);
             } completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-                
                 if(error){
                     self.url = [NSURL URLWithString:urlConst]; //reset to default url
                     completion(nil,error);

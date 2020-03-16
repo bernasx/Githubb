@@ -7,12 +7,10 @@
 //
 
 #import "ITS_UserListTableViewCell.h"
-
 @implementation ITS_UserListTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -20,5 +18,6 @@
 
     // Configure the view for the selected state
 }
+
 
 @end

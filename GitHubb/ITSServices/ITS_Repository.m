@@ -18,11 +18,15 @@
 }
 
 - (void)fetchUsersWithPage:(int)page completion:(void (^)(NSArray * _Nullable, NSError * _Nullable))completion{
-    NSString *path = @"users/";
+    NSString *path = @"/users";
     NSString *method = @"GET";
+    
     NSDictionary *parameters = @{@"since":[[NSString alloc] initWithFormat:@"%i",page]
                                 };
+                                      
        self.serviceManager.url = [NSURL URLWithString:path relativeToURL: self.serviceManager.url];
+       
+
        [self.serviceManager setRequestWithParameters:parameters withMethod:method];
        self.serviceManager.manager.responseSerializer = [AFJSONResponseSerializer serializer];
     

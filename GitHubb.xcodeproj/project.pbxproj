@@ -22,6 +22,7 @@
 		E6701565242003B300BAAD05 /* ITS_ServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E6701564242003B300BAAD05 /* ITS_ServiceManager.m */; };
 		E67015682420050200BAAD05 /* ITS_Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = E67015672420050200BAAD05 /* ITS_Repository.m */; };
 		E670156D242007C200BAAD05 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = E670156C242007C200BAAD05 /* User.m */; };
+		E67015702420115F00BAAD05 /* ITS_UserListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E670156F2420115F00BAAD05 /* ITS_UserListViewModel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		E67015672420050200BAAD05 /* ITS_Repository.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ITS_Repository.m; sourceTree = "<group>"; };
 		E670156B242007C200BAAD05 /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		E670156C242007C200BAAD05 /* User.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		E670156E2420115F00BAAD05 /* ITS_UserListViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ITS_UserListViewModel.h; sourceTree = "<group>"; };
+		E670156F2420115F00BAAD05 /* ITS_UserListViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ITS_UserListViewModel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +176,8 @@
 		E670156A242006B800BAAD05 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				E670156E2420115F00BAAD05 /* ITS_UserListViewModel.h */,
+				E670156F2420115F00BAAD05 /* ITS_UserListViewModel.m */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 				E670155C241FF8E400BAAD05 /* ITS_UserListTableViewCell.m in Sources */,
 				E670154C241FDDB800BAAD05 /* main.m in Sources */,
 				E670153E241FDDB700BAAD05 /* SceneDelegate.m in Sources */,
+				E67015702420115F00BAAD05 /* ITS_UserListViewModel.m in Sources */,
 				E67015682420050200BAAD05 /* ITS_Repository.m in Sources */,
 				E6701555241FE71C00BAAD05 /* ITS_UserListTableViewController.m in Sources */,
 			);
