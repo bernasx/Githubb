@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		E670153B241FDDB700BAAD05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E670153A241FDDB700BAAD05 /* AppDelegate.m */; };
 		E670153E241FDDB700BAAD05 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E670153D241FDDB700BAAD05 /* SceneDelegate.m */; };
-		E6701541241FDDB700BAAD05 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6701540241FDDB700BAAD05 /* ViewController.m */; };
 		E6701544241FDDB700BAAD05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6701542241FDDB700BAAD05 /* Main.storyboard */; };
 		E6701546241FDDB800BAAD05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6701545241FDDB800BAAD05 /* Assets.xcassets */; };
 		E6701549241FDDB800BAAD05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6701547241FDDB800BAAD05 /* LaunchScreen.storyboard */; };
 		E670154C241FDDB800BAAD05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E670154B241FDDB800BAAD05 /* main.m */; };
+		E6701555241FE71C00BAAD05 /* ITS_UserListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E6701554241FE71C00BAAD05 /* ITS_UserListTableViewController.m */; };
+		E670155C241FF8E400BAAD05 /* ITS_UserListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E670155A241FF8E400BAAD05 /* ITS_UserListTableViewCell.m */; };
+		E670155D241FF8E400BAAD05 /* ITS_UserListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E670155B241FF8E400BAAD05 /* ITS_UserListTableViewCell.xib */; };
+		E670155E241FFD9100BAAD05 /* ITS_UserListTableViewCell.h in Sources */ = {isa = PBXBuildFile; fileRef = E6701559241FF8E400BAAD05 /* ITS_UserListTableViewCell.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,13 +25,16 @@
 		E670153A241FDDB700BAAD05 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E670153C241FDDB700BAAD05 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		E670153D241FDDB700BAAD05 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		E670153F241FDDB700BAAD05 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E6701540241FDDB700BAAD05 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E6701543241FDDB700BAAD05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E6701545241FDDB800BAAD05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6701548241FDDB800BAAD05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E670154A241FDDB800BAAD05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E670154B241FDDB800BAAD05 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E6701553241FE71C00BAAD05 /* ITS_UserListTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ITS_UserListTableViewController.h; sourceTree = "<group>"; };
+		E6701554241FE71C00BAAD05 /* ITS_UserListTableViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ITS_UserListTableViewController.m; sourceTree = "<group>"; };
+		E6701559241FF8E400BAAD05 /* ITS_UserListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ITS_UserListTableViewCell.h; sourceTree = "<group>"; };
+		E670155A241FF8E400BAAD05 /* ITS_UserListTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ITS_UserListTableViewCell.m; sourceTree = "<group>"; };
+		E670155B241FF8E400BAAD05 /* ITS_UserListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ITS_UserListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,14 +67,15 @@
 		E6701538241FDDB700BAAD05 /* GitHubb */ = {
 			isa = PBXGroup;
 			children = (
+				E6701558241FF8B100BAAD05 /* Design */,
+				E6701557241FF8A400BAAD05 /* ITSControls */,
+				E6701556241FF87900BAAD05 /* ViewControllers */,
+				E6701552241FDDC600BAAD05 /* Storyboards */,
+				E6701545241FDDB800BAAD05 /* Assets.xcassets */,
 				E6701539241FDDB700BAAD05 /* AppDelegate.h */,
 				E670153A241FDDB700BAAD05 /* AppDelegate.m */,
 				E670153C241FDDB700BAAD05 /* SceneDelegate.h */,
 				E670153D241FDDB700BAAD05 /* SceneDelegate.m */,
-				E670153F241FDDB700BAAD05 /* ViewController.h */,
-				E6701540241FDDB700BAAD05 /* ViewController.m */,
-				E6701552241FDDC600BAAD05 /* Storyboards */,
-				E6701545241FDDB800BAAD05 /* Assets.xcassets */,
 				E670154A241FDDB800BAAD05 /* Info.plist */,
 				E670154B241FDDB800BAAD05 /* main.m */,
 			);
@@ -82,6 +89,32 @@
 				E6701547241FDDB800BAAD05 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		E6701556241FF87900BAAD05 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E6701553241FE71C00BAAD05 /* ITS_UserListTableViewController.h */,
+				E6701554241FE71C00BAAD05 /* ITS_UserListTableViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E6701557241FF8A400BAAD05 /* ITSControls */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ITSControls;
+			sourceTree = "<group>";
+		};
+		E6701558241FF8B100BAAD05 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				E6701559241FF8E400BAAD05 /* ITS_UserListTableViewCell.h */,
+				E670155A241FF8E400BAAD05 /* ITS_UserListTableViewCell.m */,
+				E670155B241FF8E400BAAD05 /* ITS_UserListTableViewCell.xib */,
+			);
+			path = Design;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,6 +177,7 @@
 				E6701549241FDDB800BAAD05 /* LaunchScreen.storyboard in Resources */,
 				E6701546241FDDB800BAAD05 /* Assets.xcassets in Resources */,
 				E6701544241FDDB700BAAD05 /* Main.storyboard in Resources */,
+				E670155D241FF8E400BAAD05 /* ITS_UserListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,10 +188,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E6701541241FDDB700BAAD05 /* ViewController.m in Sources */,
+				E670155E241FFD9100BAAD05 /* ITS_UserListTableViewCell.h in Sources */,
 				E670153B241FDDB700BAAD05 /* AppDelegate.m in Sources */,
+				E670155C241FF8E400BAAD05 /* ITS_UserListTableViewCell.m in Sources */,
 				E670154C241FDDB800BAAD05 /* main.m in Sources */,
 				E670153E241FDDB700BAAD05 /* SceneDelegate.m in Sources */,
+				E6701555241FE71C00BAAD05 /* ITS_UserListTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

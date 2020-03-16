@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ITS_UserListTableViewController.h
 //  GitHubb
 //
 //  Created by Bernardo Ribeiro on 16/03/2020.
@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+NS_ASSUME_NONNULL_BEGIN
 
+@interface ITS_UserListTableViewController : UITableViewController
 
 @end
 
+NS_ASSUME_NONNULL_END
