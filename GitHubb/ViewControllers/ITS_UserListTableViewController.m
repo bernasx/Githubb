@@ -45,18 +45,8 @@ int const currentPageConst = 46;
     self.viewModel = [[ITS_UserListViewModel alloc] init];
     self.currentPage = -currentPageConst;
     
-    //keyboard dismiss
-    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(dismissKeyboard)];
-    [self.view addGestureRecognizer:gestureRecognizer];
-    gestureRecognizer.cancelsTouchesInView = NO;
-    
     [self fetchData];
     
-}
-
-- (void)dismissKeyboard
-{
-     [self.view endEditing:YES];
 }
 
 -(void)spinnerAnimate{
@@ -132,6 +122,7 @@ int const currentPageConst = 46;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+        //alternate row colors
         if(indexPath.row % 2 != 0){
             [cell.contentView setAlpha:0.9];
         }else{
@@ -141,6 +132,14 @@ int const currentPageConst = 46;
         if(indexPath.row == lastElement){
             [self fetchData];
         }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:NSBundle.mainBundle];
+    ITS_ProfileViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"userProfile"];
+    User *tempUser = [self.userArray objectAtIndex:indexPath.row];
+    vc.stringUrl = tempUser.userUrl;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

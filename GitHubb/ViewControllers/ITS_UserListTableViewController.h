@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import <AFNetworking/UIImageView+AFNetworking.h>
 #import "ITS_UserListViewModel.h"
+#import "ITS_ProfileViewController.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ITS_UserListTableViewController : UITableViewController
@@ -22,7 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)fetchData;
 - (void)showAlert: (NSString *) alertMsg;
 - (void)spinnerAnimate;
-- (void)dismissKeyboard;
 @end
 
 NS_ASSUME_NONNULL_END

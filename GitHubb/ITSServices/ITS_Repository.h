@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) ITS_ServiceManager *serviceManager;
 
 - (void) fetchUsersWithPage:(int) page completion:(void(^)(NSArray *responseObject, NSError *error)) completion; //fetch users in page
-
+- (void) fetchUserWithUrl:(NSString *) url completion:(void(^)(NSDictionary *responseObject, NSError *error)) completion; //fetch user givenUrl
 @end
 
 NS_ASSUME_NONNULL_END

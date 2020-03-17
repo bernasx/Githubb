@@ -26,7 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //only show up in user detail
 @property (nonatomic) NSString *userName;
-@property (nonatomic,nullable) NSString *userCompany;
+@property (nonatomic) NSString *userCompany;
 @property (nonatomic) NSString *userBlog;
 @property (nonatomic) NSString *userLocation;
 @property (nonatomic) NSString *userEmail;

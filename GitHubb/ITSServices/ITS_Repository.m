@@ -20,19 +20,27 @@
 - (void)fetchUsersWithPage:(int)page completion:(void (^)(NSArray * _Nullable, NSError * _Nullable))completion{
     NSString *path = @"/users";
     NSString *method = @"GET";
-    
     NSDictionary *parameters = @{@"since":[[NSString alloc] initWithFormat:@"%i",page]
                                 };
-                                      
-       self.serviceManager.url = [NSURL URLWithString:path relativeToURL: self.serviceManager.url];
-       
-
-       [self.serviceManager setRequestWithParameters:parameters withMethod:method];
-       self.serviceManager.manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    self.serviceManager.url = [NSURL URLWithString:path relativeToURL: self.serviceManager.url];
+    [self.serviceManager setRequestWithParameters:parameters withMethod:method];
+    self.serviceManager.manager.responseSerializer = [AFJSONResponseSerializer serializer];
     
-       [self.serviceManager fetchData:^(NSArray * _Nullable responseObject, NSError * _Nullable error) {
-           completion(responseObject, error);
-       }];
+    [self.serviceManager fetchData:^(NSArray * _Nullable responseObject, NSError * _Nullable error) {
+        completion(responseObject, error);
+    }];
+}
+
+- (void)fetchUserWithUrl:(NSString *)url completion:(void (^)(NSDictionary * _Nonnull, NSError * _Nonnull))completion{
+    NSString *method = @"GET";
+    NSDictionary *parameters = nil;
+    self.serviceManager.url = [NSURL URLWithString:url];
+    [self.serviceManager setRequestWithParameters:parameters withMethod:method];
+    self.serviceManager.manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    [self.serviceManager fetchData:^(NSDictionary * _Nullable responseObject, NSError * _Nullable error) {
+        completion(responseObject, error);
+    }];
 }
 
 @end
