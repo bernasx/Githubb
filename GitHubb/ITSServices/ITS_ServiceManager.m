@@ -26,6 +26,7 @@ NSString * const urlConst = @"https://api.github.com/";
 //custom setter with parameter and method
 - (void)setRequestWithParameters:(NSDictionary *) parameters withMethod: (NSString *) method{
     self.request = [[AFHTTPRequestSerializer serializer] requestWithMethod:method URLString: self.url.absoluteString parameters:parameters error:nil];
+    
     NSLog(self.request.URL.absoluteString);
 }
 

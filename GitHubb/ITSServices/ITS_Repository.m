@@ -44,7 +44,7 @@
 }
 
 
-- (void)fetchReposWithUrl:(NSString *)url withPage:(int)page completion:(void (^)(NSArray * _Nonnull, NSError * _Nonnull))completion{
+- (void)fetchUserInfoWithUrl:(NSString *)url withPage:(int)page completion:(void (^)(NSArray * _Nonnull, NSError * _Nonnull))completion{
     NSString *method = @"GET";
     NSDictionary *parameters = @{@"page":[[NSString alloc] initWithFormat:@"%i",page]
                                 };

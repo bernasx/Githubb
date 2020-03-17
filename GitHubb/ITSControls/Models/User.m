@@ -19,7 +19,11 @@
         [self setUserUrl:dict[@"url"]];
         [self setUserAvatarUrl:dict[@"avatar_url"]];
         [self setUserFollowerUrl:dict[@"followers_url"]];
-        [self setUserFollowingUrl:dict[@"following_url"]];
+        
+        NSString *followingUrl = [[NSString alloc] initWithString:dict[@"following_url"]];
+        followingUrl = [followingUrl stringByReplacingOccurrencesOfString:@"{/other_user}" withString:@""];
+        [self setUserFollowingUrl:followingUrl];
+        
         [self setUserGistUrl:dict[@"gists_url"]];
         [self setUserStarredUrl:dict[@"starred_url"]];
         [self setUserSubscriptionsUrl:dict[@"subscriptions_url"]];
@@ -41,7 +45,11 @@
            [self setUserUrl:dict[@"url"]];
            [self setUserAvatarUrl:dict[@"avatar_url"]];
            [self setUserFollowerUrl:dict[@"followers_url"]];
-           [self setUserFollowingUrl:dict[@"following_url"]];
+           
+           NSString *followingUrl = [[NSString alloc] initWithString:dict[@"following_url"]];
+           followingUrl = [followingUrl stringByReplacingOccurrencesOfString:@"{/other_user}" withString:@""];
+           [self setUserFollowingUrl:followingUrl];
+           
            [self setUserGistUrl:dict[@"gists_url"]];
            [self setUserStarredUrl:dict[@"starred_url"]];
            [self setUserSubscriptionsUrl:dict[@"subscriptions_url"]];

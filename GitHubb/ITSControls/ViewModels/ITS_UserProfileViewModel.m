@@ -16,6 +16,9 @@
     self = [super init];
     if (self) {
         self.repoArray = [[NSMutableArray alloc] init];
+        self.followerArray = [[NSMutableArray alloc] init];
+        self.followingArray = [[NSMutableArray alloc] init];
+        
     }
     return self;
 }
@@ -35,7 +38,7 @@
 
 - (void)fetchReposWithUrl:(NSString *)url withPage:(int)page completion:(void (^)(NSArray * _Nullable, NSString * _Nullable))completion{
      ITS_Repository *repository = [[ITS_Repository alloc] init];
-    [repository fetchReposWithUrl:url withPage:page completion:^(NSArray * _Nullable responseObject, NSError * _Nullable error) {
+    [repository fetchUserInfoWithUrl:url withPage:page completion:^(NSArray * _Nullable responseObject, NSError * _Nullable error) {
         if(error){
             completion(nil,[ITS_ServiceUtils checkStatusCode:error]);
         }else{
@@ -48,5 +51,38 @@
         }
     }];
 }
+
+-(void)fetchFollowersWithUrl:(NSString *)url withPage:(int)page completion:(void (^)(NSArray * _Nullable, NSString * _Nullable))completion{
+    ITS_Repository *repository = [[ITS_Repository alloc] init];
+    [repository fetchUserInfoWithUrl:url withPage:page completion:^(NSArray * _Nullable responseObject, NSError * _Nullable error) {
+        if(error){
+            completion(nil,[ITS_ServiceUtils checkStatusCode:error]);
+        }else{
+            NSMutableArray *followerArray = [NSMutableArray arrayWithArray:responseObject];
+            for(NSDictionary *dict in followerArray){
+                User *user = [[User alloc] initWithDict:dict];
+                [self.followerArray addObject:user];
+            }
+            completion(self.followerArray ,nil);
+        }
+    }];
+}
+
+- (void)fetchFollowingWithUrl:(NSString *)url withPage:(int)page completion:(void (^)(NSArray * _Nullable, NSString * _Nullable))completion{
+    ITS_Repository *repository = [[ITS_Repository alloc] init];
+       [repository fetchUserInfoWithUrl:url withPage:page completion:^(NSArray * _Nullable responseObject, NSError * _Nullable error) {
+           if(error){
+               completion(nil,[ITS_ServiceUtils checkStatusCode:error]);
+           }else{
+               NSMutableArray *followingArray = [NSMutableArray arrayWithArray:responseObject];
+               for(NSDictionary *dict in followingArray){
+                   User *user = [[User alloc] initWithDict:dict];
+                   [self.followingArray addObject:user];
+               }
+               completion(self.followingArray ,nil);
+           }
+       }];
+}
+
 
 @end

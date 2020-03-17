@@ -73,8 +73,7 @@ int const currentProfilePageConst = 1;
     [self spinnerAnimate];
     self.currentRepoPage += currentProfilePageConst;
     [self.viewModel fetchReposWithUrl:self.user.userReposUrl withPage:self.currentRepoPage completion:^(NSArray * _Nonnull repoArray, NSString * _Nonnull error) {
-        
-        
+
         if(repoArray){
             self.repoArray = [[NSArray alloc] initWithArray:repoArray];
         }else{
@@ -87,6 +86,50 @@ int const currentProfilePageConst = 1;
             [self showAlert:error];
         }else{
             [self.repoCollectionView reloadData];
+            [self fetchFollowerData];
+        }
+        [self spinnerAnimate];
+    }];
+}
+
+- (void)fetchFollowerData{
+    [self spinnerAnimate];
+    self.currentFollowerPage += currentProfilePageConst;
+    [self.viewModel fetchFollowersWithUrl:self.user.userFollowerUrl withPage:self.currentFollowerPage completion:^(NSArray * _Nonnull followerArray, NSString * _Nonnull error) {
+          if(followerArray){
+                  self.followerArray = [[NSArray alloc] initWithArray:followerArray];
+              }else{
+                  self.currentFollowerPage -=currentProfilePageConst;
+                  return;
+              }
+                  //if there is an error
+              if(error){
+                  self.currentFollowerPage -=currentProfilePageConst; //if something goes wrong you need to pretend it didn't happen
+                  [self showAlert:error];
+              }else{
+                  [self.followerTableView reloadData];
+                  [self fetchFollowingData];
+              }
+              [self spinnerAnimate];
+    }];
+}
+
+- (void)fetchFollowingData{
+    [self spinnerAnimate];
+    self.currentFollowingPage += currentProfilePageConst;
+    [self.viewModel fetchFollowingWithUrl:self.user.userFollowingUrl withPage:self.currentFollowingPage completion:^(NSArray * _Nonnull followingArray, NSString * _Nonnull error) {
+        if(followingArray){
+            self.followingArray = [[NSArray alloc] initWithArray:followingArray];
+        }else{
+            self.currentFollowingPage -=currentProfilePageConst;
+            return;
+        }
+            //if there is an error
+        if(error){
+            self.currentFollowingPage -=currentProfilePageConst; //if something goes wrong you need to pretend it didn't happen
+            [self showAlert:error];
+        }else{
+            [self.followingTableView reloadData];
         }
         [self spinnerAnimate];
     }];
@@ -120,6 +163,49 @@ int const currentProfilePageConst = 1;
                         }];
     [alert addAction:ok];
     [self presentViewController:alert animated:YES completion:nil];
+}
+#pragma mark - UITableView Delegate and Data source
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if([tableView tag] == 1){
+        return [self.followerArray count];
+    }else{
+         return [self.followingArray count];
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    if([tableView tag] == 1){
+        NSString *cellID = @"followerTableCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        User *user = [self.followerArray objectAtIndex:indexPath.row];
+        [cell.textLabel setText:user.userLoginName];
+        return cell;
+    }else{
+        NSString *cellID = @"followingTableCell";
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        User *user = [self.followingArray objectAtIndex:indexPath.row];
+        [cell.textLabel setText:user.userLoginName];;
+        return cell;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    if([tableView tag] == 1){
+        int lastElement = (int) [self.followerArray count]-1;
+        if(indexPath.row == lastElement){
+            [self fetchFollowerData];
+        }
+    }else{
+        int lastElement = (int) [self.followingArray count]-1;
+        if(indexPath.row == lastElement){
+            [self fetchFollowingData];
+        }
+    }
 }
 
 #pragma mark - UICollectionView Delegate and Data source
