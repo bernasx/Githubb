@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AFNetworking/AFNetworking.h>
+#import <AFNetworking.h>
+#import <AFOAuth2Manager.h>
 #import "ITS_ServiceUtils.h"
 NS_ASSUME_NONNULL_BEGIN
 

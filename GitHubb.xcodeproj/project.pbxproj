@@ -27,6 +27,7 @@
 		E67015762420E2D600BAAD05 /* ITS_UserProfileViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E67015752420E2D600BAAD05 /* ITS_UserProfileViewModel.m */; };
 		E670157A2420EE0300BAAD05 /* ITS_RepoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E67015782420EE0300BAAD05 /* ITS_RepoCollectionViewCell.m */; };
 		E670157B2420EE0300BAAD05 /* ITS_RepoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E67015792420EE0300BAAD05 /* ITS_RepoCollectionViewCell.xib */; };
+		E670157E2421064500BAAD05 /* Repo.m in Sources */ = {isa = PBXBuildFile; fileRef = E670157D2421064500BAAD05 /* Repo.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +66,8 @@
 		E67015772420EE0300BAAD05 /* ITS_RepoCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ITS_RepoCollectionViewCell.h; sourceTree = "<group>"; };
 		E67015782420EE0300BAAD05 /* ITS_RepoCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ITS_RepoCollectionViewCell.m; sourceTree = "<group>"; };
 		E67015792420EE0300BAAD05 /* ITS_RepoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ITS_RepoCollectionViewCell.xib; sourceTree = "<group>"; };
+		E670157C2421064500BAAD05 /* Repo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Repo.h; sourceTree = "<group>"; };
+		E670157D2421064500BAAD05 /* Repo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Repo.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +188,8 @@
 			children = (
 				E670156B242007C200BAAD05 /* User.h */,
 				E670156C242007C200BAAD05 /* User.m */,
+				E670157C2421064500BAAD05 /* Repo.h */,
+				E670157D2421064500BAAD05 /* Repo.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E670157E2421064500BAAD05 /* Repo.m in Sources */,
 				E670156D242007C200BAAD05 /* User.m in Sources */,
 				E670157A2420EE0300BAAD05 /* ITS_RepoCollectionViewCell.m in Sources */,
 				E67015732420D78900BAAD05 /* ITS_ProfileViewController.m in Sources */,

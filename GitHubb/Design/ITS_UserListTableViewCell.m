@@ -19,5 +19,10 @@
     // Configure the view for the selected state
 }
 
+- (void)layoutSubviews{
+    [self.userImageView setClipsToBounds:YES];
+    [self.userImageView.layer setCornerRadius:10];
+}
+
 
 @end

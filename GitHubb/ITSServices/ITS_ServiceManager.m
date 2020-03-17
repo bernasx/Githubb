@@ -33,9 +33,8 @@ NSString * const urlConst = @"https://api.github.com/";
 
 
 - (void)fetchData:(void (^)(id  _Nullable responseObject, NSError *error))completion{
-
+    
     [ITS_ServiceUtils connectedCompletionBlock:^(BOOL connected) {
-        
         if(connected){
             NSURLSessionDataTask *afDataTask = [self.manager dataTaskWithRequest:self.request uploadProgress:^(NSProgress * _Nonnull uploadProgress) {
                 NSLog(@"Upload Progress = %@" ,uploadProgress);

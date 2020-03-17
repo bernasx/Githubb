@@ -15,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void) fetchUsersWithPage:(int) page completion:(void(^)(NSArray *responseObject, NSError *error)) completion; //fetch users in page
 - (void) fetchUserWithUrl:(NSString *) url completion:(void(^)(NSDictionary *responseObject, NSError *error)) completion; //fetch user givenUrl
+
+-(void) fetchReposWithUrl:(NSString *)url withPage:(int) page completion:(void(^)(NSArray *responseObject, NSError *error)) completion; //Fetch repos with url from user
+
 @end
 
 NS_ASSUME_NONNULL_END

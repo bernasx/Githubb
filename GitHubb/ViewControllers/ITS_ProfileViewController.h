@@ -10,20 +10,28 @@
 #import "ITS_UserProfileViewModel.h"
 #import "User.h"
 #import <AFNetworking/UIImageView+AFNetworking.h>
-
+#import "ITS_RepoCollectionViewCell.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface ITS_ProfileViewController : UIViewController
+@interface ITS_ProfileViewController : UIViewController <UICollectionViewDelegate,UICollectionViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *profilePicImageView;
 @property (weak, nonatomic) IBOutlet UIView *topContainerView;
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *infoLabel;
+@property (weak, nonatomic) IBOutlet UICollectionView *repoCollectionView;
 
 @property (nonatomic) ITS_UserProfileViewModel *viewModel;
 @property (nonatomic) UIActivityIndicatorView * spinner;
 @property (nonatomic) NSString *stringUrl;
 @property (nonatomic) User *user;
-- (void)fetchData;
+
+@property (nonatomic) int currentRepoPage;
+@property (nonatomic) NSArray *repoArray;
+@property (nonatomic) int currentFollowerPage;
+@property (nonatomic) int currentFollowingPage;
+
+- (void)fetchUserData;
+- (void)fetchRepoData;
 - (void)showAlert: (NSString *) alertMsg;
 - (void)spinnerAnimate;
 - (void)configView;

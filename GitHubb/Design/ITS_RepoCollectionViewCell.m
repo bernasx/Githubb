@@ -15,4 +15,10 @@
     // Initialization code
 }
 
+- (void)layoutSubviews{
+    [self.cellContentView setClipsToBounds:YES];
+    [self.cellContentView.layer setCornerRadius:10];
+   
+}
+
 @end

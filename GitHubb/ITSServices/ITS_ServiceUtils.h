@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AFNetworking/AFNetworkReachabilityManager.h>
+#import <AFNetworking.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ITS_ServiceUtils : NSObject

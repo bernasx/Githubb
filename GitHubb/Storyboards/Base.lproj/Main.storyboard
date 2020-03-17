@@ -4,13 +4,13 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--User List Table View Controller-->
         <scene sceneID="Zui-7W-BR2">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vDQ-7b-jcV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tableViewController id="IF6-47-fTQ" customClass="ITS_UserListTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="6f3-PG-hrL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
@@ -34,6 +34,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="KoZ-wV-s7X"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vDQ-7b-jcV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="520" y="141"/>
         </scene>
@@ -79,7 +80,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.51520521139999997" green="0.56483763949999999" blue="0.63190038069999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.13765662910000001" green="0.1602830589" blue="0.18431726100000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="t3z-km-cAE" firstAttribute="top" secondItem="ObY-gh-WM1" secondAttribute="top" constant="8" id="Gtb-W0-awD"/>
                                     <constraint firstItem="mJp-Te-utQ" firstAttribute="leading" secondItem="Vep-7E-16H" secondAttribute="trailing" constant="8" id="L3i-xM-ZLs"/>
@@ -95,11 +96,43 @@
                                     <constraint firstItem="sU1-EA-zYG" firstAttribute="top" secondItem="ObY-gh-WM1" secondAttribute="top" constant="18" id="q8K-zm-bgp"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D8t-n8-6ro">
+                                <rect key="frame" x="0.0" y="156" width="375" height="148"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="148" id="COs-Iu-ZQd"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="13" minimumInteritemSpacing="10" id="r5N-mb-Tw9">
+                                    <size key="itemSize" width="180" height="112"/>
+                                    <size key="estimatedItemSize" width="180" height="112"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="repoCollectionCell" id="NeV-CS-e6H" customClass="ITS_RepoCollectionViewCell">
+                                        <rect key="frame" x="10" y="18" width="128" height="112"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="17a-26-9FG">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="112"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                        <size key="customSize" width="128" height="112"/>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="Tq7-Re-Z7k" id="sKm-qX-E71"/>
+                                    <outlet property="delegate" destination="Tq7-Re-Z7k" id="DQX-MF-1t5"/>
+                                </connections>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.43037774359999997" green="0.4718382955" blue="0.52785929570000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="6jM-fa-2JO" firstAttribute="trailing" secondItem="ObY-gh-WM1" secondAttribute="trailing" id="0bf-DM-o9I"/>
+                            <constraint firstItem="D8t-n8-6ro" firstAttribute="leading" secondItem="6jM-fa-2JO" secondAttribute="leading" id="EqV-yo-xdV"/>
+                            <constraint firstItem="D8t-n8-6ro" firstAttribute="top" secondItem="ObY-gh-WM1" secondAttribute="bottom" constant="8" id="Kmt-ge-LeB"/>
                             <constraint firstItem="ObY-gh-WM1" firstAttribute="leading" secondItem="6jM-fa-2JO" secondAttribute="leading" id="NpG-oZ-vOc"/>
+                            <constraint firstItem="D8t-n8-6ro" firstAttribute="trailing" secondItem="6jM-fa-2JO" secondAttribute="trailing" id="aYO-Qi-bRb"/>
                             <constraint firstItem="ObY-gh-WM1" firstAttribute="top" secondItem="6jM-fa-2JO" secondAttribute="top" id="sps-sD-9h5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6jM-fa-2JO"/>
@@ -108,6 +141,7 @@
                         <outlet property="infoLabel" destination="mJp-Te-utQ" id="hC5-ZI-mTp"/>
                         <outlet property="nameLabel" destination="t3z-km-cAE" id="0Hh-2c-c9K"/>
                         <outlet property="profilePicImageView" destination="sU1-EA-zYG" id="WLO-yG-BjR"/>
+                        <outlet property="repoCollectionView" destination="D8t-n8-6ro" id="eqB-q5-Nux"/>
                         <outlet property="topContainerView" destination="ObY-gh-WM1" id="oGV-IE-LGw"/>
                     </connections>
                 </viewController>

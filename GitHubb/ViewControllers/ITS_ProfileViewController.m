@@ -13,11 +13,18 @@
 @end
 
 @implementation ITS_ProfileViewController
+int const currentProfilePageConst = 1;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //remove navbar shadow
+    self.navigationController.navigationBar.layer.shadowOpacity = 0.0f;
+    self.navigationController.navigationBar.shadowImage = [UIImage new];
+    
     //round the top view's edges
+    [self.topContainerView.layer setBorderWidth:0];
     [self.topContainerView setClipsToBounds:YES];
     [self.topContainerView.layer setCornerRadius:30];
     [self.topContainerView.layer setMaskedCorners:kCALayerMaxXMaxYCorner | kCALayerMinXMaxYCorner];
@@ -33,7 +40,8 @@
     
     //viewmodel and request setup
     self.viewModel = [[ITS_UserProfileViewModel alloc] init];
-    [self fetchData];
+    self.currentRepoPage = 0;
+    [self fetchUserData];
 }
 
 -(void)spinnerAnimate{
@@ -46,7 +54,7 @@
     }
 }
 
-- (void)fetchData{
+- (void)fetchUserData{
     [self spinnerAnimate];
     [self.viewModel fetchUserWithUrl:self.stringUrl completion:^(User * _Nonnull user, NSString * _Nonnull error) {
         //if there is an error
@@ -55,10 +63,35 @@
         }else{
             self.user = user;
             [self configView];
+            [self fetchRepoData];
         }
         [self spinnerAnimate];
     }];
 }
+
+- (void)fetchRepoData{
+    [self spinnerAnimate];
+    self.currentRepoPage += currentProfilePageConst;
+    [self.viewModel fetchReposWithUrl:self.user.userReposUrl withPage:self.currentRepoPage completion:^(NSArray * _Nonnull repoArray, NSString * _Nonnull error) {
+        
+        
+        if(repoArray){
+            self.repoArray = [[NSArray alloc] initWithArray:repoArray];
+        }else{
+            self.currentRepoPage -=currentProfilePageConst;
+            return;
+        }
+            //if there is an error
+        if(error){
+            self.currentRepoPage -=currentProfilePageConst; //if something goes wrong you need to pretend it didn't happen
+            [self showAlert:error];
+        }else{
+            [self.repoCollectionView reloadData];
+        }
+        [self spinnerAnimate];
+    }];
+}
+
 
 -(void)configView{
     self.nameLabel.text = self.user.userLoginName;
@@ -87,6 +120,39 @@
                         }];
     [alert addAction:ok];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+#pragma mark - UICollectionView Delegate and Data source
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return [self.repoArray count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSString *cellID = @"repoCollectionCell";
+    NSString *nibID = @"ITS_RepoCollectionViewCell";
+    UINib *nib = [UINib nibWithNibName:nibID bundle:NSBundle.mainBundle];
+    [self.repoCollectionView registerNib:nib forCellWithReuseIdentifier:cellID];
+    ITS_RepoCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellID forIndexPath:indexPath];
+    cell.repo = [self.repoArray objectAtIndex:indexPath.row];
+    cell.repoNameLabel.text = cell.repo.repoName;
+    if(![cell.repo.repoDescription isKindOfClass:[NSNull class]]){
+        cell.repoDescriptionLabel.text = cell.repo.repoDescription;
+    }
+    return cell;
+    
+}
+
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+    int lastElement = (int) [self.repoArray count]-1;
+    if(indexPath.row == lastElement){
+        [self fetchRepoData];
+    }
 }
 
 

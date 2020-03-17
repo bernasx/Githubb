@@ -7,7 +7,7 @@ target 'GitHubb' do
 
 
   pod 'AFNetworking', '~> 3.0'
-
+  pod 'AFOAuth2Manager', '~> 3.0'
   
   # Pods for GitHubb
 

@@ -43,4 +43,18 @@
     }];
 }
 
+
+- (void)fetchReposWithUrl:(NSString *)url withPage:(int)page completion:(void (^)(NSArray * _Nonnull, NSError * _Nonnull))completion{
+    NSString *method = @"GET";
+    NSDictionary *parameters = @{@"page":[[NSString alloc] initWithFormat:@"%i",page]
+                                };
+    
+    self.serviceManager.url = [NSURL URLWithString:url];
+    [self.serviceManager setRequestWithParameters:parameters withMethod:method];
+    self.serviceManager.manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    [self.serviceManager fetchData:^(NSArray * _Nullable responseObject, NSError * _Nullable error) {
+        completion(responseObject, error);
+    }];
+}
+
 @end

@@ -24,13 +24,6 @@ int const currentPageConst = 46;
     UIImage *logo = [UIImage imageNamed:@"github-logo"];
     UIImageView *logoView = [[UIImageView alloc] initWithImage:logo];
     self.navigationItem.titleView = logoView;   
-  
-    //add a shadow to navbar
-    self.navigationController.navigationBar.layer.shadowColor = [[UIColor blackColor] CGColor];
-    self.navigationController.navigationBar.layer.shadowOffset = CGSizeMake(1.0f, 1.0f);
-    self.navigationController.navigationBar.layer.shadowRadius = 3.0f;
-    self.navigationController.navigationBar.layer.shadowOpacity = 1.0f;
-    self.navigationController.navigationBar.layer.masksToBounds=NO;
     
     //tableview config
     [self.tableView setBounces:NO];
@@ -47,6 +40,15 @@ int const currentPageConst = 46;
     
     [self fetchData];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    //navbar shadow, placed here so it reloads when shown on the main screen
+    self.navigationController.navigationBar.layer.shadowColor = [[UIColor blackColor] CGColor];
+    self.navigationController.navigationBar.layer.shadowOffset = CGSizeMake(1.0f, 1.0f);
+    self.navigationController.navigationBar.layer.shadowRadius = 3.0f;
+    self.navigationController.navigationBar.layer.shadowOpacity = 1.0f;
+    self.navigationController.navigationBar.layer.masksToBounds=NO;
 }
 
 -(void)spinnerAnimate{
